@@ -1,25 +1,34 @@
-﻿using P2C2._2;
+﻿// using System;
+using P2C2._2;
 
-Couleur couleurChoisie = Couleur.Vert;
+// Couleur couleurChoisie = Couleur.Vert;
+System.Console.WriteLine("Veuillez choisir une couleur :");
+string choixCouleur = Console.ReadLine();
+if(choixCouleur == null || !Enum.TryParse(choixCouleur, true, out Couleur couleurChoisie))
+{
+    couleurChoisie = (Couleur)(-1);
+}
 
 // TODO : Remplacer la séquence if/else par une instruction switch équivalente qui fonctionne selon la valeur de couleurChoisie
-if (couleurChoisie == Couleur.Bleu)
+switch(couleurChoisie)
 {
-    Console.WriteLine("La couleur est bleue");
-}
-else if (couleurChoisie == Couleur.Vert)
-{
-    Console.WriteLine("La couleur est verte");
-}
-else if (couleurChoisie == Couleur.Rouge)
-{
-    Console.WriteLine("La couleur est rouge");
-}
-else if (couleurChoisie == Couleur.Jaune)
-{
-    Console.WriteLine("La couleur est jaune");
-}
-else
-{
-    Console.WriteLine("Cette couleur n'est pas connue !");
+    case Couleur.Bleu:
+        System.Console.WriteLine("La couleur est bleue");
+        break;
+
+    case Couleur.Vert:
+        System.Console.WriteLine("La couleur est Vert");
+        break;
+
+    case Couleur.Rouge:
+        System.Console.WriteLine("La couleur est Rouge");
+        break;
+
+    case Couleur.Jaune:
+        System.Console.WriteLine("La couleur est Jaune");
+        break;
+
+    default:
+        System.Console.WriteLine("Cette couleur n'est pas connue !");
+        break;
 }
